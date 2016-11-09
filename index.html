@@ -90,6 +90,78 @@
 						- need to "reduce" dynamics
 					</div>
 				</section>
+				<section data-markdown>
+					### Our approach
+					- borrow from control theory, time series
+					- structured black box models (pieces make sense)
+					- neural networks for flexible fitting
+				</section>
+				<section data-markdown>
+					### Modeling I
+					Observed positions at each time (`$y_t$`):
+
+					`$$
+					y_t = \begin{bmatrix}
+					y_{goalie} &
+					x_{puck} &
+					y_{puck}
+					\end{bmatrix}^\top
+					$$`
+
+					Control inputs ($u_t$) drive changes in observed positions:
+
+					`$y_{t + 1} = y_t + v_{max} \sigma(u_t)$`
+
+					**Goal**: predict control inputs from trial history:
+					`$$ u_t = F(y_{1:t}) $$`
+
+					In general, this is a *really hard problem.*
+				</section>
+				<section data-markdown>
+					### Modeling II
+					One (of many) assumptions we could make:
+					`$$
+					u_t = f(y_t, y_{1:t-1}) + \eta_t
+					$$`
+
+
+					That is, control inputs are driven by a sum:
+					  - one part current state: `$y_t$`
+					  - one part past trajectory: `$y_{1:t-1}$`
+					  - transformed by a nonlinear function: `$f$`
+					  - plus a noisy "driving" input: `$\eta_t$`
+				</section>
+				<section>
+					<h3>Modeling III</h3>
+					$$
+					u_t = f(y_t, y_{1:t-1}) + \eta_t
+					$$
+					<br>
+					<h5>How do we interpret this?</h5>
+					<ul>
+						<li>$f$: fixed, deterministic, reactive</li>
+						<li>$\eta$: trial-specific, "innovation", residual</li>
+					</ul>
+				</section>
+				<section data-markdown>
+					###Model fitting
+					Variational Bayes autoencoder
+					- Encoding model:
+						- `$f$`: deterministic feedforward neural net
+						- `$\eta$`: `$AR(p)$` time series
+					- Decoding model:
+						- state space model (Archer et al., 2015)
+						- = Kalman filter for linear system
+				</section>
+				<section>
+					trial fit plots
+				</section>
+				<section>
+					generated trials
+				</section>
+				<section>
+					distribution of trials
+				</section>
 			</div>
 		</div>
 
@@ -100,12 +172,17 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				// math: {
+				//         mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+				//         config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+			    // },
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/math/math.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
