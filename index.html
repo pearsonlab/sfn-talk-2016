@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					##Dynamic control models for strategic interaction
+					**_John Pearson_**, Shariq Iqbal, Caroline Drucker, Michael Platt
+					[pearsonlab.github.io/sfn-2016-talk](https://pearsonlab.github.io/sfn-2016-talk)
+				</section>
+				<section>
+					<div style="float:left; width:25%">
+						<img src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/shariq.jpg" >
+						<p>Shariq Iqbal</p>
+					</div>
+					<div style="float:left; width:25%">
+						<img src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/cbdrucker.jpg" >
+						<p>Caroline Drucker</p>
+					</div>
+					<div style="float:left; width:25%">
+						<img src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/jfg.jpg" >
+						<p>Jean-Francois Gari&eacute;py</p>
+					</div>
+					<div style="float:left; width:25%">
+						<img src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/PlattMichael.jpg" >
+						<p>Michael Platt</p>
+					</div>
+				</section>
+				<section data-background-image="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/macaques.jpg">
+				</section>
+				<section data-background-image="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/chess.jpg">
+					<aside class="notes" data-markdown>
+						### Pros:
+						- Well-studied, normative solutions
+
+						### Cons:
+						- Highly idealized, limited dynamics
+						- Biologically aligned?
+					</aside>
+				</section>
+				<section data-background-image="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/sfn2016/penalty-shot.jpg">
+					<aside class="notes" data-markdown>
+						- Intrinsically social
+						- Repeatable, but lots of variation
+						- Decisions tightly linked to movement
+					</aside>
+				</section>
+				<section>
+					<h3>Penalty Shot</h3>
+					<video width="70%" align="center" controls autoplay loop src="https://web.duke.edu/mind/level2/faculty/pearson/assets/videos/penaltyshot/sess130.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<aside class="notes" data-markdown>
+					  - two monkeys, shooter and goalie (shooter recorded)
+					  - controlled by joysticks
+					  - roles rotated, animals know each other
+					  - repeated sessions
+					  - rapidly learned, rich dynamics
+					</aside>
+				</section>
+				<section>
+					<div style="width: 50%; float: left">
+						<pre>sample trial goes here</pre>
+					</div>
+					<div style="width: 50%; float: right" data-markdown>
+						### Complexity tax
+						- each trial a different length
+						- how to average, align?
+						- need to "reduce" dynamics
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
