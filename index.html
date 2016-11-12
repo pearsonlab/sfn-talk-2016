@@ -81,9 +81,13 @@
 				</section>
 				<section>
 					<div style="width: 50%; float: left; text-align: left">
-						<video autoplay loop  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/videos/penaltyshot/sess130_trace_new.mp4" type="video/mp4">
+						<video autoplay loop  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/videos/penaltyshot/sess130_trace_new.mp4" type="video/mp4" id="trace_video">
 							Your browser does not support the video tag.
 						</video>
+						<script>
+						var vid = document.getElementById("trace_video");
+vid.playbackRate = 0.5;
+						</script>
 					</div>
 					<div style="width: 50%; float: right; font-size: .9em" >
 						<h3>Complexity tax</h3>
