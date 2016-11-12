@@ -80,14 +80,18 @@
 					</aside>
 				</section>
 				<section>
-					<div style="width: 50%; float: left">
-						<pre>sample trial goes here</pre>
+					<div style="width: 50%; float: left; text-align: left">
+						<video autoplay loop  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/videos/penaltyshot/sess130_trace_new.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
 					</div>
-					<div style="width: 50%; float: right" data-markdown>
-						### Complexity tax
-						- each trial a different length
-						- how to average, align?
-						- need to "reduce" dynamics
+					<div style="width: 50%; float: right; font-size: .9em" >
+						<h3>Complexity tax</h3>
+						<ul style="font-size: 0.85">
+							<li>each trial a different length</li>
+							<li>how to average, align?</li>
+							<li>need to "reduce" dynamics</li>
+						</ul>
 					</div>
 				</section>
 				<section data-markdown>
@@ -117,19 +121,20 @@
 
 					In general, this is a *really hard problem.*
 				</section>
-				<section data-markdown>
-					### Modeling II
+				<section>
+					<h3>Modeling II</h3>
 					One (of many) assumptions we could make:
-					`$$
+					$$
 					u_t = f(y_t, y_{1:t-1}) + \eta_t
-					$$`
-
-
-					That is, control inputs are driven by a sum:
-					  - one part current state: `$y_t$`
-					  - one part past trajectory: `$y_{1:t-1}$`
-					  - transformed by a nonlinear function: `$f$`
-					  - plus a noisy "driving" input: `$\eta_t$`
+					$$
+					<br><br>
+					<h5>Control signals are driven by a sum:</h5>
+					<ul>
+					  <li>current state: $y_t$</li>
+					  <li>past trajectory: $y_{1:t-1}$</li>
+					  <li>nonlinear transformation: $f$</li>
+					  <li>noisy "driving" input: $\eta_t$</li>
+				  </ul>
 				</section>
 				<section>
 					<h3>Modeling III</h3>
@@ -143,18 +148,38 @@
 						<li>$\eta$: trial-specific, "innovation", residual</li>
 					</ul>
 				</section>
-				<section data-markdown>
-					###Model fitting
-					Variational Bayes autoencoder
-					- Encoding model:
-						- `$f$`: deterministic feedforward neural net
-						- `$\eta$`: `$AR(p)$` time series
-					- Decoding model:
-						- state space model (Archer et al., 2015)
-						- = Kalman filter for linear system
+				<section>
+					<h3>Model fitting</h3>
+					<h5>Variational Bayes autoencoder</h5>
+					<ul>
+					<li>Encoding model:</li>
+						<ul>
+						<li>$f$: deterministic feedforward neural net</li>
+						<li>$\eta$: $AR(p)$ time series</li>
+						</ul>
+					<br>
+					<li>Decoding model:</li>
+						<ul>
+						<li>state space model (Archer et al., 2015)</li>
+						<li>= Kalman filter for linear system</li>
+						</ul>
+					</ul>
 				</section>
 				<section>
-					trial fit plots
+					<h3>It fits!</h3>
+					<img  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/penaltyshot/pos_fit.svg" style="border: none; background: none; box-shadow: none">
+				</img>
+				</section>
+				<section>
+					<h3>A tougher test</h3>
+					<div style="width: 50%; float: left; text-align: left">
+						<img  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/penaltyshot/vel_fit_shooter_new.svg" style="border: none; background: none; box-shadow: none">
+						</img>
+					</div>
+					<div style="width: 50%; float: right; text-align: left">
+						<img  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/penaltyshot/vel_fit_goalie_new.svg" style="border: none; background: none; box-shadow: none">
+						</img>
+					</div>
 				</section>
 				<section>
 					<h3>Generated Trials</h3>
@@ -171,10 +196,15 @@
 					</aside>
 				</section>
 				<section>
-					distribution of trials
-				</section>
-				<section>
-					systematic vs innovation terms
+					<h3>Innovations matter</h3>
+					<div style="width: 50%; float: left; text-align: left">
+						<img  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/penaltyshot/pred_cont_dev.svg" style="border: none; background: none; box-shadow: none">
+						</img>
+					</div>
+					<div style="width: 50%; float: right; text-align: left">
+						<img  src="https://web.duke.edu/mind/level2/faculty/pearson/assets/images/penaltyshot/pred_cont_nodev.svg" style="border: none; background: none; box-shadow: none">
+						</img>
+					</div>
 				</section>
 				<section data-markdown>
 					###Conclusions
