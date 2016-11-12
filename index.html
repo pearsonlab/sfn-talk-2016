@@ -100,26 +100,25 @@
 					- structured black box models (pieces make sense)
 					- neural networks for flexible fitting
 				</section>
-				<section data-markdown>
-					### Modeling I
-					Observed positions at each time (`$y_t$`):
+				<section>
+					<h3>Modeling I</h3>
+					Observed positions at each time ($y_t$):
 
-					`$$
+					$$
 					y_t = \begin{bmatrix}
 					y_{goalie} &
 					x_{puck} &
 					y_{puck}
 					\end{bmatrix}^\top
-					$$`
+					$$
 
+					<br>
 					Control inputs ($u_t$) drive changes in observed positions:
+					$$y_{t + 1} = y_t + v_{max} \sigma(u_t)$$
 
-					`$y_{t + 1} = y_t + v_{max} \sigma(u_t)$`
-
-					**Goal**: predict control inputs from trial history:
-					`$$ u_t = F(y_{1:t}) $$`
-
-					In general, this is a *really hard problem.*
+					<br>
+					<b>Goal</b>: predict control inputs from trial history:
+					$$u_t = F(y_{1:t})$$
 				</section>
 				<section>
 					<h3>Modeling II</h3>
@@ -127,7 +126,7 @@
 					$$
 					u_t = f(y_t, y_{1:t-1}) + \eta_t
 					$$
-					<br><br>
+					<br>
 					<h5>Control signals are driven by a sum:</h5>
 					<ul>
 					  <li>current state: $y_t$</li>
@@ -145,7 +144,7 @@
 					<h5>How do we interpret this?</h5>
 					<ul>
 						<li>$f$: fixed, deterministic, reactive</li>
-						<li>$\eta$: trial-specific, "innovation", residual</li>
+						<li>$\eta$: trial-specific, "innovation," residual</li>
 					</ul>
 				</section>
 				<section>
